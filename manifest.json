@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "lever-parser-extension",
+    "description": "A lever resume parser extension",
+    "version": "0.1",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.lever.co*/apply"
+            ],
+            "js": [
+                "jquery.js",
+                "resumeParse.js"
+            ]
+        }
+    ]
+}
