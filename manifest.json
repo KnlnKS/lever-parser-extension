@@ -6,11 +6,11 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.lever.co*/apply"
+                "https://*.lever.co/*/apply"
             ],
             "js": [
                 "jquery.js",
-                "resumeParse.js"
+                "index.js"
             ]
         }
     ]
