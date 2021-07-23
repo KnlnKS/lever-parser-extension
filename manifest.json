@@ -11,7 +11,8 @@
             "js": [
                 "jquery.js",
                 "index.js",
-                "injectStyles.js"
+                "injectStyles.js",
+                "injectContent.js"
             ]
         }
     ],
