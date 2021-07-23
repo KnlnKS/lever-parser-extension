@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "lever-parser-extension",
+    "name": "Lever Resume Parser",
     "description": "A lever resume parser extension",
     "version": "0.1",
     "content_scripts": [
