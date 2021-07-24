@@ -9,16 +9,16 @@
                 "https://jobs.lever.co/parse*"
             ],
             "js": [
-                "jquery.js",
-                "index.js",
-                "injectStyles.js",
-                "injectContent.js"
+                "js/jquery.js",
+                "js/index.js",
+                "js/injectStyles.js",
+                "js/injectContent.js"
             ]
         }
     ],
     "background": {
         "scripts": [
-            "background.js"
+            "js/background.js"
         ]
     },
     "permissions": [
