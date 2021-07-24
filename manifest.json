@@ -1,18 +1,28 @@
 {
     "manifest_version": 2,
-    "name": "lever-parser-extension",
-    "description": "A lever resume parser extension",
-    "version": "0.1",
+    "name": "Lever Resume Parser",
+    "description": "A Lever resume parser extension",
+    "version": "0.2",
     "content_scripts": [
         {
             "matches": [
-                "https://*.lever.co/*/apply"
+                "https://jobs.lever.co/parse*"
             ],
             "js": [
-                "jquery.js",
-                "index.js"
+                "js/jquery.js",
+                "js/index.js",
+                "js/injectStyles.js",
+                "js/injectContent.js"
             ]
         }
+    ],
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "permissions": [
+        "contextMenus"
     ],
     "icons": {
         "16": "icons/icon16.png",
