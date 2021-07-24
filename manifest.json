@@ -6,7 +6,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://*.lever.co/parse"
+                "https://jobs.lever.co/parse"
             ],
             "js": [
                 "jquery.js",
