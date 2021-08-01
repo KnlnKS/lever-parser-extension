@@ -106,21 +106,28 @@ const displayResults = (data) => {
                   })()
                 : ""
             }
+            ${
+              data?.positions.length > 0
+                ? `
             <table class="results-employment">
-            <thead>
-               <tr>
-                  <th>Company</th>
-                  <th>Job Title</th>
-                  <th>Start</th>
-                  <th>End</th>
-                  <th>Is current?</th>
-                  <th>Summary</th>
-               </tr>
-            </thead>
-            <tbody>
-               ${data?.positions
-                 .map((position) => {
-                   return `
+              <thead>
+                <tr>
+                   <th>Company</th>
+                   <th>Job Title</th>
+                   <th>Start</th>
+                   <th>End</th>
+                   <th>Is current?</th>
+                   <th>Summary</th>
+                </tr>
+              </thead>
+              <tbody>
+              `
+                : ""
+            }
+               ${
+                 data?.positions
+                   .map((position) => {
+                     return `
                <tr>
                   <td>
                      ${position?.org}
@@ -142,10 +149,13 @@ const displayResults = (data) => {
                   </td>
                </tr>
                `;
-                 })
-                 .join("")}
-            </tbody>
-         </table>
+                   })
+                   .join("") +
+                 `
+                  </tbody>
+                </table>
+                `
+               }
     `;
   const downloadButton = $(
     "<button id='json-dl-button' class='postings-btn template-btn-utility visible-resume-upload'>Download JSON</button>"
