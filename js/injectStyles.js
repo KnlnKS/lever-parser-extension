@@ -1596,9 +1596,6 @@ $("head").append(
     .resume-upload-failure,.resume-upload-success,.resume-upload-working{
         display:none;
         cursor:default;
-        position:absolute;
-        top:0;
-        left:260px
     }
     .resume-upload-working{
         cursor:wait
