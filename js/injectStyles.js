@@ -1868,7 +1868,26 @@ $("head").append(
         opacity:0;
         cursor:pointer
     }
+    table,
+    td {
+        border: 1px solid #333;
+        padding: 4px;
+    }
 
+    th {
+        font-size: 20px;
+        text-align: center;
+        font-family: unset;
+        text-transform: capitalize;
+    }
+
+    #results-employment th {
+        font-size: 18px;
+    }
+
+    .category {
+        background: lightgray;
+    }
 </style>
     `
 );

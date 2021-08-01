@@ -45,6 +45,8 @@ $(".content").replaceWith(
                <p class="error-message">File exceeds the maximum upload size of <b>100MB</b>. Please try a smaller size.</p>
             </span>
          </div>
+         <div id="results-display">
+         </div>
       </div>
    </div>
    `
