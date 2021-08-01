@@ -1596,9 +1596,6 @@ $("head").append(
     .resume-upload-failure,.resume-upload-success,.resume-upload-working{
         display:none;
         cursor:default;
-        position:absolute;
-        top:0;
-        left:260px
     }
     .resume-upload-working{
         cursor:wait
@@ -1886,9 +1883,13 @@ $("head").append(
         margin-top: 24px;
     }
 
-    #results-employment th {
+    .results-employment th {
         font-size: 18px;
         padding: 2px 8px 2px 8px;
+    }
+
+    .results-overview {
+        width: 100%;
     }
 
     .category {

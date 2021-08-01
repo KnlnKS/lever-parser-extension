@@ -57,6 +57,9 @@ $(function () {
     // Remove the button if it exists so that the user doesn't get confused between new and old data
     $("#json-dl-button")?.remove();
 
+    // Removes old data
+    $("#results-display")?.empty();
+
     working.show();
     var formData = new FormData();
     formData.append("resume", file);

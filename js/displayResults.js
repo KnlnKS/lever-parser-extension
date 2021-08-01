@@ -1,9 +1,10 @@
 const displayResults = (data) => {
   const newChild = `
-      <table id="results-overview">
+    <h4>Results</h4>
+      <table class="results-overview">
         <thead>
             <tr>
-                <th colspan="4">Results</th>
+                <th colspan="4">Details</th>
             </tr>
         </thead>
         <tbody>
@@ -58,23 +59,31 @@ const displayResults = (data) => {
   } months
               </td>
             </tr>
+            </tbody>
+            </table>
+            <br />
 
             <!-- Schools -->
             ${
-              data?.schools &&
-              data.schools.length > 0 &&
-              (() => {
-                let accum = `
-                  <tr>
+              data?.schools.length > 0
+                ? (() => {
+                    let accum = `
+                <table class="results-overview">
+                  <thead>
                     <th colspan="4">Schools</th>
-                  </tr>`;
-                accum += data?.schools.map((school) => {
-                  return `
+                  </thead>
+                  <tbody>
+                  `;
+
+                    accum += data?.schools.map(
+                      (school) =>
+                        `
                   <tr>
                     <td class="category">Time Period</td>
                     <td>${timestampToDate(
                       school?.start?.timestamp
-                    )} to ${timestampToDate(school?.end?.timestamp)}</td>
+                    )} to ${timestampToDate(school?.end?.timestamp)}
+                    </td>
                     <td class="category">Is Current?</td>
                     <td>${school?.isCurrent ? "Yes" : "No"}</td>
                   </tr>
@@ -89,55 +98,64 @@ const displayResults = (data) => {
                     <td>${school?.gpa}</td>
                     <td class="category">Summary</td>
                     <td>${school?.summary}</td>
-                  </tr>`;
-                });
+                  </tr>
+                 `
+                    );
 
-                return accum;
-              })()
+                    return accum + "</tbody></table><br />";
+                  })()
+                : ""
             }
-        </tbody>
-    </table>
-    <br />
-    <table id="results-employment">
-        <thead>
-            <tr>
-                <th>Company</th>
-                <th>Job Title</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Is current?</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${data?.positions
-              .map((position) => {
-                return `
+            ${
+              data?.positions.length > 0
+                ? `
+            <table class="results-employment">
+              <thead>
                 <tr>
+                   <th>Company</th>
+                   <th>Job Title</th>
+                   <th>Start</th>
+                   <th>End</th>
+                   <th>Is current?</th>
+                   <th>Summary</th>
+                </tr>
+              </thead>
+              <tbody>
+              `
+                : ""
+            }
+               ${
+                 data?.positions
+                   .map((position) => {
+                     return `
+               <tr>
                   <td>
-                    ${position?.org}
+                     ${position?.org}
                   </td>
                   <td>
-                    ${position?.title}
+                     ${position?.title}
                   </td>
                   <td>
-                    ${timestampToDate(position?.start?.timestamp)}
+                     ${timestampToDate(position?.start?.timestamp)}
                   </td>
                   <td>
-                    ${timestampToDate(position?.end?.timestamp)}
+                     ${timestampToDate(position?.end?.timestamp)}
                   </td>
                   <td>
-                    ${position?.isCurrent ? "Yes" : "No"}
+                     ${position?.isCurrent ? "Yes" : "No"}
                   </td>
                   <td>
-                    ${position?.summary}
+                     ${position?.summary}
                   </td>
-              </tr>
-              `;
-              })
-              .join("")}
-        </tbody>
-    </table>
+               </tr>
+               `;
+                   })
+                   .join("") +
+                 `
+                  </tbody>
+                </table>
+                `
+               }
     `;
   const downloadButton = $(
     "<button id='json-dl-button' class='postings-btn template-btn-utility visible-resume-upload'>Download JSON</button>"
