@@ -1,7 +1,7 @@
 $("title").replaceWith('<title>Lever Resume Parser - KnlnKS</title>');
 
 $(".content").replaceWith(
-   `
+  `
    <div class="content">
       <div class="main-header page-full-width section-wrapper"></div>
       <div class="section-wrapper accent-section small-accent page-full-width">
@@ -44,6 +44,7 @@ $(".content").replaceWith(
             <span class="resume-upload-oversize">
                <p class="error-message">File exceeds the maximum upload size of <b>100MB</b>. Please try a smaller size.</p>
             </span>
+            <div id="results-display"></div>
          </div>
       </div>
    </div>

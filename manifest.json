@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Lever Resume Parser",
     "description": "A Lever resume parser extension",
-    "version": "0.2",
+    "version": "0.3",
     "content_scripts": [
         {
             "matches": [
@@ -12,7 +12,9 @@
                 "js/jquery.js",
                 "js/index.js",
                 "js/injectStyles.js",
-                "js/injectContent.js"
+                "js/injectContent.js",
+                "js/displayResults.js",
+                "js/utils.js"
             ]
         }
     ],

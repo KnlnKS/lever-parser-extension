@@ -12,21 +12,21 @@ function downloadObjectAsJson(obj, fileName) {
   downloadAnchorNode.remove();
 }
 
-
-$(function() {
-  var POST_PATH = '/parseResume';
+$(function () {
+  var POST_PATH = "/parseResume";
   var MAX_FILE_SIZE = 100 * 1000 * 1000; // 100 MB
   var req;
 
-  var failure = $('.resume-upload-failure');
-  var success = $('.resume-upload-success');
-  var working = $('.resume-upload-working');
-  var oversizeFailure = $('.resume-upload-oversize');
+  var failure = $(".resume-upload-failure");
+  var success = $(".resume-upload-success");
+  var working = $(".resume-upload-working");
+  var oversizeFailure = $(".resume-upload-oversize");
 
   function onData(data) {
     try {
       data = JSON.parse(data);
-      downloadObjectAsJson(data, "resume");
+      displayResults(data);
+
       success.show();
     } catch (e) {
       failure.show();
@@ -38,7 +38,7 @@ $(function() {
     }
   }
 
-  $('#resume-upload-input').change(function() {
+  $("#resume-upload-input").change(function () {
     failure.hide();
     success.hide();
     working.hide();
@@ -53,28 +53,35 @@ $(function() {
       oversizeFailure.show();
       return;
     }
+
+    // Remove the button if it exists so that the user doesn't get confused between new and old data
+    $("#json-dl-button")?.remove();
+
     working.show();
     var formData = new FormData();
-    formData.append('resume', file);
+    formData.append("resume", file);
 
     if (req && req.readyState < 4) {
       req.abort();
     }
 
     req = new XMLHttpRequest();
-    req.onreadystatechange = function(e) {
+    req.onreadystatechange = function (e) {
       if (req.readyState === 4) {
         working.hide();
         if (req.status === 200) {
           onData(req.response);
-        } else if (req.status === 400 && req.responseText === 'PayloadTooLargeError') {
+        } else if (
+          req.status === 400 &&
+          req.responseText === "PayloadTooLargeError"
+        ) {
           oversizeFailure.show();
         } else {
           failure.show();
         }
       }
     };
-    req.open('POST', POST_PATH, true);
+    req.open("POST", POST_PATH, true);
     req.send(formData);
   });
 });
