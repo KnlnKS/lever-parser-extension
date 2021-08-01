@@ -1883,9 +1883,13 @@ $("head").append(
         margin-top: 24px;
     }
 
-    #results-employment th {
+    .results-employment th {
         font-size: 18px;
         padding: 2px 8px 2px 8px;
+    }
+
+    .results-overview {
+        width: 100%;
     }
 
     .category {
