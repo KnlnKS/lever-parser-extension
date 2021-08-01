@@ -12,7 +12,9 @@
                 "js/jquery.js",
                 "js/index.js",
                 "js/injectStyles.js",
-                "js/injectContent.js"
+                "js/injectContent.js",
+                "js/displayResults.js",
+                "js/utils.js"
             ]
         }
     ],
