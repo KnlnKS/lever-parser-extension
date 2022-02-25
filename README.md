@@ -1,8 +1,7 @@
-# **EDIT**
-I have helped make a website that provides the same functionality.
+# **THIS REPO IS NO LONGER BEING MAINTAINED**
+I have made a website that provides the same functionality.
 
 Repo: https://github.com/KnlnKS/resume-parser
-
 Site: https://resume-parser.vercel.app/
 
 
